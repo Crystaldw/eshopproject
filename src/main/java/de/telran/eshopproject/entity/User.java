@@ -15,59 +15,51 @@ import java.util.Collections;
 @Data
 public class User implements UserDetails {
 
-    @Getter
     @SequenceGenerator(name = "name_seq", sequenceName = "name_seq", allocationSize = 1)
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "name_seq")
     private Long id;
 
-    @Setter
-    @Getter
     private String firstName;
 
     private String lastName;
 
     private String userName;
 
-    @Setter
     private String password;
 
-    @Setter
     private String email;
     @Enumerated(EnumType.STRING)
-    private UserRole userRole;
+    private EnumUserRole enumUserRole;
 
     @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private EnumGender enumGender;
 
     public User(String firstName,
                 String lastName,
                 String userName,
                 String password,
                 String email,
-                UserRole userRole,
-                Gender gender){
+                EnumUserRole enumUserRole,
+                EnumGender enumGender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.email = email;
-        this.userRole = userRole;
-        this.gender = gender;
-    }
-
-    public String getEmail() {
-        return userName;
+        this.enumUserRole = enumUserRole;
+        this.enumGender = enumGender;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         SimpleGrantedAuthority authority =
-                new SimpleGrantedAuthority(userRole.name());
+                new SimpleGrantedAuthority(enumUserRole.name());
         return Collections.singletonList(authority);
     }
+
     @Override
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 

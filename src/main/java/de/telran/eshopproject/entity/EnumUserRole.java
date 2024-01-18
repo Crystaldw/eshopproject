@@ -1,6 +1,6 @@
 package de.telran.eshopproject.entity;
 
-public enum UserRole {
+public enum EnumUserRole {
     ADMIN,
     USER
 }

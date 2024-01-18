@@ -1,6 +1,6 @@
 package de.telran.eshopproject.entity;
 
-public enum Gender {
+public enum EnumGender {
     MALE,
     FEMALE
 }
