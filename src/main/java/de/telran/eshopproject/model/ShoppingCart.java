@@ -1,4 +1,4 @@
-package de.telran.eshopproject.entity;
+package de.telran.eshopproject.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

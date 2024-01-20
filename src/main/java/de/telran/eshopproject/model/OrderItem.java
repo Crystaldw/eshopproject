@@ -1,4 +1,4 @@
-package de.telran.eshopproject.entity;
+package de.telran.eshopproject.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -17,6 +17,7 @@ public class OrderItem {
 
     @Id
     private String id;
+
     @OneToOne
     private Product product;
 

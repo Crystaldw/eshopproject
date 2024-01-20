@@ -1,4 +1,4 @@
-package de.telran.eshopproject.entity;
+package de.telran.eshopproject.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,31 +30,31 @@ public class User implements UserDetails {
 
     private String email;
     @Enumerated(EnumType.STRING)
-    private EnumUserRole enumUserRole;
+    private UserRole userRole;
 
     @Enumerated(EnumType.STRING)
-    private EnumGender enumGender;
+    private UserGender userGender;
 
     public User(String firstName,
                 String lastName,
                 String userName,
                 String password,
                 String email,
-                EnumUserRole enumUserRole,
-                EnumGender enumGender) {
+                UserRole userRole,
+                UserGender userGender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.email = email;
-        this.enumUserRole = enumUserRole;
-        this.enumGender = enumGender;
+        this.userRole = userRole;
+        this.userGender = userGender;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         SimpleGrantedAuthority authority =
-                new SimpleGrantedAuthority(enumUserRole.name());
+                new SimpleGrantedAuthority(userRole.name());
         return Collections.singletonList(authority);
     }
 

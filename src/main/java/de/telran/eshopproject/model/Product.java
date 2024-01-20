@@ -1,4 +1,4 @@
-package de.telran.eshopproject.entity;
+package de.telran.eshopproject.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +24,7 @@ public class Product {
     @Column(name = "sex")
     private sex a_sex;
 
-    @Column(name = "dresstype")
+    @Column(name = "dress type")
     private String b_dressType;
 
     @Column(name = "image")
