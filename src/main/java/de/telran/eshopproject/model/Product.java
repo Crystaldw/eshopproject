@@ -31,12 +31,12 @@ public class Product {
     private String c_image;
 
     @Column(name = "price")
-    private double d_price;
+    private String d_price;
 
     @Column(name = "arrival")
     private String e_arrival;
 
     @Column(name = "discount")
-    private String f_discount;
+    private int f_discount;
 
 }

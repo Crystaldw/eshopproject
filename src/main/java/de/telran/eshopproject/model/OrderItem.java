@@ -30,7 +30,7 @@ public class OrderItem {
 
     public void fromDto (Product p, ShoppingCart cart, int quantity){
         id = UUID.randomUUID().toString().replace("-", "");
-        product = p;
+        this.product = p;
         this.cart = cart;
         this.quantity = quantity;
     }

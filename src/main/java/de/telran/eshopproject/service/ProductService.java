@@ -11,16 +11,36 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+/**
+ * Сервис для работы с продуктами.
+ */
+
 @Service
 @AllArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
 
+    /**
+     * Возвращает список продуктов по типу одежды.
+     *
+     * @param dresstype Тип одежды для поиска.
+     * @return Список продуктов.
+     */
+
     public List<Product> getProductsByDressType( String dresstype){
         return productRepository.findProductByB_DressType(dresstype);
     }
 
+    /**
+     * Возвращает продукты в зависимости от пола, с разбиением на страницы.
+     *
+     * @param sex       Пол для фильтрации продуктов.
+     * @param pageSize  Размер страницы.
+     * @param page      Номер страницы.
+     * @param countBySex Статистика по количеству продуктов по полу.
+     * @return HashMap с информацией о продуктах на текущей странице, общем количестве страниц и номере текущей страницы.
+     */
 
     public HashMap<String, Object> getProductsBySex(String sex, Integer pageSize, Integer page, Map<Boolean, Long> countBySex) {
 
@@ -39,6 +59,15 @@ public class ProductService {
 
     }
 
+    /**
+     * Переупорядочивает список продуктов в соответствии с определенными критериями.
+     *
+     * @param products    Исходный список продуктов.
+     * @param countBySex  Статистика по количеству продуктов по полу.
+     * @param newProds    Список новых продуктов.
+     * @return Список продуктов после переупорядочивания.
+     */
+    
     private List<Product> rearrange(List<Product> products, Map<Boolean, Long> countBySex, List<Product> newProds) {
         List<Product> ll = new ArrayList<>(products);
         Product ptemp = ll.get(0);
