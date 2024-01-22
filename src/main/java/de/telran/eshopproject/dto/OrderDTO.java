@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Объект передачи данных (DTO) для информации о заказе.
+ */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
